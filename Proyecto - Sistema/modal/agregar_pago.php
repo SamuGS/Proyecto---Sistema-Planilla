@@ -1,74 +1,51 @@
+  <a title="Agregar pago" class="btn btn-sm btn-outline-primary waves-effect" data-toggle="modal" href="#actualizar-<?php echo $emp->id; ?>"><i class="ti-money"></i></a>
 
-<script src="./js/jquery.maskedinput.min.js"></script>
-
-<a title="Agregar Empleado" class="btn btn-sm btn-outline-primary waves-effect" data-toggle="modal" href="#agregar"><i class="ti-plus"></i></a>
-
-        <!-- Modal -->
-          <div class="modal fade" id="agregar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <!-- Modal -->
+          <div class="modal fade" id="actualizar-<?php echo $emp->id; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
-                <div class="modal-header bg-primary right" >
-                  <p class="heading">
-                  <h6>Formulario para registrar <b>Empleados!</b></h6>
-  
-                  </p>
+                <div class="modal-header bg-primary">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                  <h6 class="modal-title">Empleado: <?php echo $emp->nombre ;?></h6>
                 </div>
-
-
                 
                 <div class="modal-body">
-
-                
-
-      <form class="form-horizontal" method="POST">
-        <div class="form-group">
-          <input class="form-control" placeholder="Nombre completo" name="nombre" id="nombre">
-        </div>
-
-        <div class="form-group">
-          <input class="form-control" placeholder="Cargo" name="cargo" id="cargo">
-        </div>
-
-        <div class="form-group">
-          <input class="form-control" placeholder="Dirección" name="direccion" id="dir">
-        </div>
-
-        <div class="form-group">
-          <input class="form-control" placeholder="Dui" name="dui" id="dui">
-        </div>
-
-        <div class="form-group">
-          <input class="form-control" placeholder="Telefono" name="telefono" id="telefono">
-        </div>
-
-        <div class="form-group">
-          <input class="form-control" placeholder="Salario" name="salario" id="sal">
-        </div>
-
-        <div class="form-group">
-          <button type="submit" class="btn btn-outline-primary btn-block" name="agregar" id="agregar">Registrar</button>
-        </div>
-
-    <script>
-        $(document).ready(function() {
-            $("#telefono").mask('9999-9999'); 
-            $("#dui").mask('99999999-9');
-        });
-    </script>
-
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $("#agregar").click(function() {
-        $("form")[0].reset();
-        });
-      });
-    </script>
-</form>
-
-                
                     
+                <form class="form" method="POST" role="form">
+                
+                  <div class="form-group">
+                  <label>Nombre del Empleado</label>
+                    <input class="form-control" value="<?php echo $emp->nombre ;?>" name="nombre" style="width: 430px">
+                  </div>
+
+                  <div class="form-group">
+                  <label>Salario Mensual</label>
+                    <input class="form-control" value="<?php echo $emp->salario ;?>"  name="salario" style="width: 430px">
+                  </div>
+
+                  <div class="form-group">
+                  <label>Descuento de AFP</label>
+                    <input class="form-control" value="<?php echo $emp->afp ;?>"  name="afp" style="width: 430px">
+                  </div>
+
+                  <div class="form-group">
+                  <label>Descuento de Seguo Social</label>
+                    <input class="form-control" value="<?php echo $emp->seguro ;?>"  name="seguro" style="width: 430px">
+                  </div>
+
+                  <div class="form-group">
+                  <label>Dias trabajados</label>
+                    <input class="form-control" type="number" name="dias_trabajados" style="width: 430px">
+                  </div>
+
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-outline-primary btn-block" name="agregar" style="width: 430px">Registrar pago</button>
+                  </div>
+
+                  <p class="alert alert-primary">Los pagos se gestionan mensualmente</p>
+
+                </form>
                 </div>
               </div><!-- /.modal-content -->
-            
             </div><!-- /.modal-dialog -->
           </div><!-- /.modal -->

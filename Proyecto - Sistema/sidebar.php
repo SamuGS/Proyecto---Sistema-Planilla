@@ -56,8 +56,16 @@
 							</li>
 
 							<li class=" ">
-								<a href="cargo.php" data-i18n="nav.animations.main">
+								<a href="pago_procesado.php" data-i18n="nav.animations.main">
 									<span class="pcoded-micon"><i class="ti-money"></i></span>
+									<span class="pcoded-mtext">Pagos finalizados</span>
+									<span class="pcoded-mcaret"></span>
+								</a>
+							</li>
+
+							<li class=" ">
+								<a href="cargo.php" data-i18n="nav.animations.main">
+									<span class="pcoded-micon"><i class="ti-check-box"></i></span>
 									<span class="pcoded-mtext">Cargos</span>
 									<span class="pcoded-mcaret"></span>
 								</a>
@@ -65,7 +73,7 @@
 
 							<li class=" ">
 								<a href="horario.php" data-i18n="nav.animations.main">
-									<span class="pcoded-micon"><i class="ti-money"></i></span>
+									<span class="pcoded-micon"><i class="ti-timer"></i></span>
 									<span class="pcoded-mtext">Horarios</span>
 									<span class="pcoded-mcaret"></span>
 								</a>
@@ -79,39 +87,62 @@
 								</a>
 							</li>
 
-							<div class="pcoded-navigatio-lavel" data-i18n="nav.category.support" menu-title-theme="theme5">Reportes</div>
-							<ul class="pcoded-item pcoded-left-item">
-								
-								<li class="">
-									<a href="http://flatable.phoenixcoded.net/doc" data-i18n="nav.documentation.main" target="_blank">
-										<span class="pcoded-micon"><i class="ti-file"></i></span>
-										<span class="pcoded-mtext">Empleados</span>
-										<span class="pcoded-mcaret"></span>
-									</a>
-								</li>
+							<li class=" ">
+								<a href="usuario_inactivo.php" data-i18n="nav.animations.main">
+									<span class="pcoded-micon"><i class="ti-agenda"></i></span>
+									<span class="pcoded-mtext">Usuarios inactivos</span>
+									<span class="pcoded-mcaret"></span>
+								</a>
+							</li>
 
+
+							<div class="pcoded-navigatio-lavel" data-i18n="nav.category.support" menu-title-theme="theme5">Soporte</div>
+							<ul class="pcoded-item pcoded-left-item">
 								<li class="">
-									<a href="https://support.phoenixcoded.net/#/home" target="_blank" data-i18n="nav.submit-issue.main">
-										<span class="pcoded-micon"><i class="ti-file"></i></span>
-										<span class="pcoded-mtext">Pagos realizados</span>
+									<a href="configuracion.php" data-i18n="nav.documentation.main">
+										<span class="pcoded-micon"><i class="icofont icofont-gears"></i></span>
+										<span class="pcoded-mtext">Configuracion</span>
 										<span class="pcoded-mcaret"></span>
 									</a>
 								</li>
 							</ul>
 
-							<div class="pcoded-navigatio-lavel" data-i18n="nav.category.support" menu-title-theme="theme5">Soporte</div>
+							<div class="pcoded-navigatio-lavel" data-i18n="nav.category.support" menu-title-theme="theme5">Reportes</div>
 							<ul class="pcoded-item pcoded-left-item">
 								<li class="">
-									<a href="http://flatable.phoenixcoded.net/doc" data-i18n="nav.documentation.main" target="_blank">
+									<a href="reporte/empleado.php" data-i18n="nav.documentation.main" target="_blank">
 										<span class="pcoded-micon"><i class="ti-file"></i></span>
-										<span class="pcoded-mtext">Documentation</span>
+										<span class="pcoded-mtext">Empleados</span>
 										<span class="pcoded-mcaret"></span>
 									</a>
 								</li>
+							</ul>
+
+							<ul class="pcoded-item pcoded-left-item">
 								<li class="">
-									<a href="https://support.phoenixcoded.net/#/home" target="_blank" data-i18n="nav.submit-issue.main">
-										<span class="pcoded-micon"><i class="ti-layout-list-post"></i></span>
-										<span class="pcoded-mtext">Submit Issue</span>
+									<a href="reporte/roles.php" data-i18n="nav.documentation.main" target="_blank">
+										<span class="pcoded-micon"><i class="ti-file"></i></span>
+										<span class="pcoded-mtext">Roles</span>
+										<span class="pcoded-mcaret"></span>
+									</a>
+								</li>
+							</ul>
+
+							<ul class="pcoded-item pcoded-left-item">
+								<li class="">
+									<a href="reporte/pago.php" data-i18n="nav.documentation.main" target="_blank">
+										<span class="pcoded-micon"><i class="ti-file"></i></span>
+										<span class="pcoded-mtext">Pagos</span>
+										<span class="pcoded-mcaret"></span>
+									</a>
+								</li>
+							</ul>
+
+							<ul class="pcoded-item pcoded-left-item">
+								<li class="">
+									<a href="reporte/usuario.php" data-i18n="nav.documentation.main" target="_blank">
+										<span class="pcoded-micon"><i class="ti-file"></i></span>
+										<span class="pcoded-mtext">Usuarios</span>
 										<span class="pcoded-mcaret"></span>
 									</a>
 								</li>

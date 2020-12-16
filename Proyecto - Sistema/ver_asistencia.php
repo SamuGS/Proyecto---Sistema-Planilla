@@ -35,7 +35,7 @@
         <?php include 'action/asistencia.php'; ?>
 
 
-          <?php include 'Clase.php'; ?>
+          <?php include './modelo/Clase.php'; ?>
           <?php $as = Empleado::asistencia_finalizada();
           if(count($as)>0){
               // hacemos la instancia si hay asistencias en la tabla
@@ -66,7 +66,6 @@
                   <th>Hora de entrada</th>
                   <th>Hora de salida</th>
                   <th>Estado</th>
-                  <th>Finalizar</th>
                 </thead>
 
                 <?php
@@ -85,14 +84,6 @@
                   }else{
                     echo "Finalizado";
                     } ?></td>
-
-                  <td>
-                    <form method="post">
-                      <input type="hidden" value="<?php echo $ast->id?>" id="id" name="id">
-                      <input type="hidden" value="<?php echo $ast->time_in?>" id="time_in" name="time_in">
-                      <button class="btn btn-outline-primary waves-effect btn-sm" name="actualizar"><i class="ti ti-check"></i></button>
-                    </form>
-                  </td>
                 </tr>
 
 

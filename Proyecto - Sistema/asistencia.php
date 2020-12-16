@@ -35,7 +35,7 @@
         <?php include 'action/asistencia.php'; ?>
 
 
-          <?php include 'Clase.php'; ?>
+          <?php include './modelo/Clase.php'; ?>
           <?php $as = Empleado::mostrar_asistencia();
           if(count($as)>0){
               // hacemos la instancia si hay asistencias en la tabla
@@ -61,7 +61,7 @@
                 <table id="dom-table" class="table">
                 <thead>
                   <th>Codigo</th>
-                  <th>Fecha</th>
+                  <th>Nombre</th>
                   <th>Fecha</th>
                   <th>Hora de entrada</th>
                   <th>Hora de salida</th>

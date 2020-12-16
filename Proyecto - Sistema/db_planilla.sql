@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-12-2020 a las 19:05:37
+-- Tiempo de generación: 15-12-2020 a las 15:00:33
 -- Versión del servidor: 10.4.6-MariaDB
 -- Versión de PHP: 7.3.8
 
@@ -45,14 +45,9 @@ CREATE TABLE `asistencia` (
 --
 
 INSERT INTO `asistencia` (`id`, `id_empleado`, `nombre`, `fecha`, `time_in`, `estado`, `time_out`, `num_hr`, `registro`) VALUES
-(58, 6885, 'Abraham Douglas Escobar Duran', '2020-12-01', '08:49:20', 1, '10:01:27', 17, '2020-12-01 16:01:27'),
-(59, 5356, 'Octavio EfraÃ­n HernÃ¡ndez GÃ¡lvez ', '2020-12-01', '08:49:54', 1, '10:00:21', 16, '2020-12-01 16:00:21'),
-(60, 5356, 'Octavio EfraÃ­n HernÃ¡ndez GÃ¡lvez ', '2020-12-01', '10:01:53', 1, '10:01:59', 15, '2020-12-01 16:01:59'),
-(61, 5356, 'Octavio EfraÃ­n HernÃ¡ndez GÃ¡lvez ', '2020-12-01', '10:30:44', 1, '10:31:03', 10, '2020-12-01 16:31:03'),
-(62, 5356, 'Octavio EfraÃ­n HernÃ¡ndez GÃ¡lvez ', '2020-12-01', '10:33:14', 1, '11:52:41', 9, '2020-12-01 17:52:41'),
-(63, 5356, 'Octavio EfraÃ­n HernÃ¡ndez GÃ¡lvez ', '2020-12-01', '11:54:31', 1, '11:57:27', 9, '2020-12-01 17:57:27'),
-(64, 5356, 'Octavio EfraÃ­n HernÃ¡ndez GÃ¡lvez ', '2020-12-01', '11:54:49', 1, '11:57:31', 9, '2020-12-01 17:57:31'),
-(65, 6885, 'Abraham Douglas Escobar Duran', '2020-12-01', '11:58:30', 0, '00:00:00', 0, '2020-12-01 17:58:30');
+(73, 3443, 'Carlos Rivas', '2020-12-15', '07:46:35', 1, '07:49:05', 9, '2020-12-15 13:49:05'),
+(74, 4632, 'Juan Cortez', '2020-12-15', '07:47:30', 1, '07:48:01', 9, '2020-12-15 13:48:01'),
+(75, 8364, 'Abraham Douglas Escobar Duran', '2020-12-15', '07:51:32', 1, '07:51:38', 9, '2020-12-15 13:51:38');
 
 -- --------------------------------------------------------
 
@@ -62,19 +57,15 @@ INSERT INTO `asistencia` (`id`, `id_empleado`, `nombre`, `fecha`, `time_in`, `es
 
 CREATE TABLE `cargo` (
   `id` int(11) NOT NULL,
-  `descripcion` varchar(150) NOT NULL,
-  `pago_hora` double NOT NULL
+  `descripcion` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `cargo`
 --
 
-INSERT INTO `cargo` (`id`, `descripcion`, `pago_hora`) VALUES
-(1, 'Gerente', 5),
-(3, 'Marketing', 1.5),
-(4, 'Programador Junior', 2),
-(6, 'Analista de datos', 1.25);
+INSERT INTO `cargo` (`id`, `descripcion`) VALUES
+(10, 'Programador');
 
 -- --------------------------------------------------------
 
@@ -103,8 +94,9 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`id`, `codigo`, `nombre`, `direccion`, `dui`, `edad`, `telefono`, `id_cargo`, `id_horario`, `salario`, `seguro`, `afp`, `registro`) VALUES
-(80, 5356, 'Octavio EfraÃ­n HernÃ¡ndez GÃ¡lvez ', 'Los almendros', '97607996-2', 22, '7564-3242', 1, 2, 359, 12, 29, '2020-12-01 16:54:04'),
-(81, 6885, 'Abraham Douglas Escobar Duran', 'Santiago Nonualco', '97607996-2', 23, '7695-7522', 1, 1, 448.75, 15, 36.25, '2020-12-01 16:54:16');
+(84, 4632, 'Juan Cortez', 'San salvador, Valle del sol', '2345678-9', 25, '6564-5796', 10, 7, 448.75, 15, 36.25, '2020-12-15 13:45:03'),
+(85, 3443, 'Carlos Rivas', 'Los conacastes #2', '97607996-2', 22, '9875-3804', 10, 9, 359, 12, 29, '2020-12-15 13:51:05'),
+(86, 8364, 'Abraham Douglas Escobar Duran', 'Santiago Nonualco', '97607996-2', 22, '9876-8980', 10, 7, 400, 0, 0, '2020-12-15 13:51:23');
 
 -- --------------------------------------------------------
 
@@ -123,22 +115,8 @@ CREATE TABLE `horario` (
 --
 
 INSERT INTO `horario` (`id`, `time_in`, `time_out`) VALUES
-(1, '07:00:00', '04:00:00'),
-(2, '08:00:00', '05:00:00');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `hora_extra`
---
-
-CREATE TABLE `hora_extra` (
-  `id` int(11) NOT NULL,
-  `id_empleado` varchar(15) NOT NULL,
-  `horas` double NOT NULL,
-  `pago_hora` double NOT NULL,
-  `fecha` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(7, '07:00:00', '16:00:00'),
+(9, '07:30:00', '16:30:00');
 
 -- --------------------------------------------------------
 
@@ -149,10 +127,11 @@ CREATE TABLE `hora_extra` (
 CREATE TABLE `pago` (
   `id` int(11) NOT NULL,
   `nombre` varchar(200) NOT NULL,
-  `salario` double NOT NULL,
-  `squince` double NOT NULL,
+  `mensual` double NOT NULL,
+  `quincenal` double NOT NULL,
   `afp` double NOT NULL,
   `seguro` double NOT NULL,
+  `descuento` int(11) NOT NULL,
   `registro` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -160,20 +139,11 @@ CREATE TABLE `pago` (
 -- Volcado de datos para la tabla `pago`
 --
 
-INSERT INTO `pago` (`id`, `nombre`, `salario`, `squince`, `afp`, `seguro`, `registro`) VALUES
-(41, 'Abraham Douglas Escobar Duran', 448.75, 224.375, 36.25, 15, '2020-12-01 17:59:15');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `planilla`
---
-
-CREATE TABLE `planilla` (
-  `id` int(11) NOT NULL,
-  `numero` int(11) NOT NULL,
-  `registro` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `pago` (`id`, `nombre`, `mensual`, `quincenal`, `afp`, `seguro`, `descuento`, `registro`) VALUES
+(53, 'Carlos Rivas', 359, 179.5, 29, 12, 41, '2020-12-15 13:52:20'),
+(54, 'Juan Cortez', 365.41666666667, 182.70833333333, 36.25, 15, 51, '2020-12-15 13:52:37'),
+(55, 'Abraham Douglas Escobar Duran', 386.66666666667, 193.33333333333, 0, 0, 0, '2020-12-15 13:52:51'),
+(56, 'Abraham Douglas Escobar Duran', 400, 200, 0, 0, 0, '2020-12-15 13:55:26');
 
 -- --------------------------------------------------------
 
@@ -196,10 +166,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id`, `usuario`, `clave`, `correo`, `tipo`, `estado`, `registro`) VALUES
-(3, 'abraham', '63982e54a7aeb0d89910475ba6dbd3ca6dd4e5a1', 'dstiloficial@gmail.com', 'Planillero', 1, '2020-11-05 15:55:26'),
-(18, 'douglas', '63982e54a7aeb0d89910475ba6dbd3ca6dd4e5a1', 'dstiloficial@gmail.com', 'Administrador', 2, '2020-12-01 13:34:24'),
-(19, 'douglas', '63982e54a7aeb0d89910475ba6dbd3ca6dd4e5a1', 'dstiloficial@gmail.com', 'Administrador', 2, '2020-12-01 13:35:14'),
-(20, '9999', '', 'juan@j.com', 'Administrador', 1, '2020-12-01 13:38:52');
+(3, 'abraham', '63982e54a7aeb0d89910475ba6dbd3ca6dd4e5a1', 'dstiloficial@gmail.com', 'Planillero', 1, '2020-12-15 12:53:24'),
+(25, 'admin', '90b9aa7e25f80cf4f64e990b78a9fc5ebd6cecad', 'admin@admin.com', 'Administrador', 1, '2020-12-15 13:40:36');
 
 --
 -- Índices para tablas volcadas
@@ -236,12 +204,6 @@ ALTER TABLE `pago`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `planilla`
---
-ALTER TABLE `planilla`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
@@ -255,43 +217,37 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `asistencia`
 --
 ALTER TABLE `asistencia`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT de la tabla `cargo`
 --
 ALTER TABLE `cargo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT de la tabla `horario`
 --
 ALTER TABLE `horario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `pago`
 --
 ALTER TABLE `pago`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
-
---
--- AUTO_INCREMENT de la tabla `planilla`
---
-ALTER TABLE `planilla`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -3,7 +3,7 @@
 <?php include 'nav.php'; ?>
 
 <?php include 'sidebar.php'; ?>
-<?php include './modelo/Clase.php'; ?>
+
 
 <div class="pcoded-content">
   <div class="pcoded-inner-content">
@@ -11,7 +11,7 @@
       <div class="page-wrapper">
         <div class="page-header">
           <div class="page-header-title">
-            <h4>Empleados</h4>
+            <h4>Usuarios</h4>
           </div>
           
           <div class="page-header-breadcrumb">
@@ -25,28 +25,23 @@
 
               <li class="breadcrumb-item">Vista
               </li>
-              <li class="breadcrumb-item">Empleado
+              <li class="breadcrumb-item">Usuarios Inactivos
               </li>
             </ul>
           </div>  
         </div>
         
         <div class="page-body">
-        <?php include 'action/empleado.php'; ?>
-        
-        <div class="card" style="width: 0px">
-          <div class="card-body">
-            <?php include 'modal/agregar_empleado.php'; ?>
-          </div>
-        </div>
+        <?php include 'action/usuario.php'; ?>
         
 
 
 
-          
-          <?php $emps = Empleado::mostrar();
-            if(count($emps)>0){
-              // hacemos la instancia si hay empleados en la tabla
+          <?php include './modelo/Clase.php'; ?>
+          <?php 
+            $usu = Empleado::mostrar_usuario_inactivo();
+            if(count($usu)>0){
+              // hacemos la instancia si hay asistencias en la tabla
           ?>
 
           
@@ -54,7 +49,7 @@
 
           <div class="card">
             <div class="card-header">
-              <h5>Tabla de Empleados</h5>
+              <h5>Tabla de Usuarios</h5>
               <div class="card-header-right">
                 <i class="icofont icofont-rounded-down"></i>
                 <i class="icofont icofont-refresh"></i>
@@ -64,31 +59,27 @@
             
             <div class="card-block">
               <div class="dt-responsive table-responsive">
-                
-                <table id="dom-table" class="table">
+                <table id="dom-table" class="table nowrap">
                 <thead>
-                  <th>Código</th>
-                  <th>Empleado</th>
+                  <th>Usuario</th>
                   <th style="width: 20px">Ver</th>
                   <th style="width: 20px">Actualizar</th>
-                  <th style="width: 20px">Asistencia</th>
                   <th style="width: 20px">Eliminar</th>
                 </thead>
 
-                <?php foreach($emps as $emp){ ?>
+                <?php foreach($usu as $user){ ?>
 
                 <tr>
-                  <td><?php echo $emp->codigo?></td>
-                  <td><?php echo $emp->nombre?></td>
-                  <td><?php include 'modal/ver_empleado.php'; ?></td>
-                  <td><?php include 'modal/actualizar_empleado.php'; ?></td>
-                  <td><?php include 'modal/agregar_asistencia.php'; ?></td>
+                  <td><?php echo $user->usuario?></td>
+                  <td><?php include 'modal/ver_usuario2.php'; ?></td>
+                  <td><?php include 'modal/actualizar_usuario.php'; ?></td>
                   <td>
                     <form method="post">
-                      <input type="hidden" value="<?php echo $emp->id?>" id="id" name="id">
-                      <button class="btn btn-sm btn-outline-danger waves-effect" name="eliminar" onclick="return confirm('¿Realmente deseas eliminar el registro?')"><i class="ti-trash"></i></button>
+                      <input type="hidden" value="<?php echo $user->id?>" id="id" name="id">
+                      <button class="btn btn-sm btn-outline-danger waves-effect" name="eliminar"><i class="ti-trash"></i></button>
                     </form>
                   </td>
+                </tr>
                 </tr>
 
 
@@ -96,8 +87,7 @@
                     } 
                   }else{
                     echo "<div class='jumbotron col-lg-12'>";
-                    echo "<h2><i class='glyphicon glyphicon-minus-sign'></i> No hay Empleados registrados.!</h2>";
-                    echo "<h3>Puede registrar un nuevo desde el boton Registrar.</h3>";
+                    echo "<h2><i class='glyphicon glyphicon-minus-sign'></i>No hay usuarios Inactivos!</h2>";
                     echo "</div>";
                   }
                 ?> 

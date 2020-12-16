@@ -10,7 +10,7 @@
         $e = $_POST['estado'];
 
         if(empty($u) || empty($c) || empty($m) || empty($t) || empty($e)){
-            echo '<div class="alert alert-danger" data-dismiss="alert">Campos vacios!</div>';
+            echo '<div class="alert alert-danger icons-alert" data-dismiss="alert">Campos vacios!</div>';
         }else{   	
 
 			$sql = "insert into usuario(usuario,clave,correo,tipo,estado,registro) value (\"$u\",\"$c\",\"$m\",\"$t\",\"$e\",NOW())";
@@ -27,8 +27,7 @@
 
     if (isset($erroragregar)){
 			?>
-			<div class="alert alert-danger" role="alert">
-				<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<div class="alert alert-danger icons-alert" data-dismiss="alert">
 					<strong>Error!</strong> 
 					<?php
 						foreach ($erroragregar as $errorag) {
@@ -41,7 +40,7 @@
 			if (isset($mensajeagregar)){
 				
 				?>
-				<div class="alert alert-success" role="alert" data-dismiss="alert">
+				<div class="alert alert-primary icons-alert" data-dismiss="alert">
 						<strong>¡Bien hecho!</strong>
 						<?php
 							foreach ($mensajeagregar as $mensajeag) {
@@ -57,10 +56,10 @@
 
     if(isset($_POST['actualizar'])){
         $usuario = $_POST['usuario'];
-        $c = $_POST['pass'];
         $correo = $_POST['correo'];
         $tipo = $_POST['tipo'];
         $estado = $_POST['estado'];
+        $c = sha1(md5($_POST['pass']));
         $ide = $_POST['id'];
 
         if(empty($usuario) || empty($correo) || empty($tipo) || empty($estado)){
@@ -84,7 +83,7 @@
     if (isset($erac)){
 			
 			?>
-			<div class="alert alert-danger" role="alert" data-dismiss="alert">
+			<div class="alert alert-danger icons-alert" data-dismiss="alert">
 					<strong>Error!</strong> 
 					<?php
 						foreach ($erac as $errorac) {
@@ -97,7 +96,7 @@
 			if (isset($msgac)){
 				
 				?>
-				<div class="alert alert-success" role="alert" data-dismiss="alert">
+				<div class="alert alert-primary icons-alert" data-dismiss="alert">
 						<strong>¡Bien hecho!</strong>
 						<?php
 							foreach ($msgac as $msac) {
@@ -132,7 +131,7 @@
     if (isset($errors)){
 			
 			?>
-			<div class="alert alert-danger" role="alert" data-dismiss="alert">
+			<div class="alert alert-danger icons-alert" data-dismiss="alert">
 					<strong>Error!</strong> 
 					<?php
 						foreach ($errors as $error) {
@@ -145,7 +144,7 @@
 			if (isset($messages)){
 				
 				?>
-				<div class="alert alert-success" role="alert" data-dismiss="alert">
+				<div class="alert alert-primary icons-alert" data-dismiss="alert">
 						<strong>¡Bien hecho!</strong>
 						<?php
 							foreach ($messages as $message) {

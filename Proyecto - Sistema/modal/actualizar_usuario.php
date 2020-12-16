@@ -17,10 +17,6 @@
                   </div>
 
                   <div class="form-group">
-                    <input class="form-control" name="pass" style="width: 430px" placeholder="Contraseña">
-                  </div>
-
-                  <div class="form-group">
                     <input class="form-control" value="<?php echo $user->correo ;?>"  name="correo" style="width: 430px">
                   </div>
 
@@ -29,7 +25,17 @@
                   </div>
 
                   <div class="form-group">
-                    <input class="form-control" value="<?php echo $user->estado ;?>"  name="estado" style="width: 430px">
+                    <input class="form-control" name="pass" style="width: 430px">
+                  </div>
+
+                  <p class="alert alert-danger">Si no desea cambiar la contraseña debe colocar la misma!</p>
+
+                  <div class="form-group">
+                  <select class="form-control" name="estado" style="width: 430px">
+                    <option value="">Estado de usuario</option>
+                    <option value="1">Activo</option>
+                    <option value="2">Inactivo</option>
+                  </select>
                   </div>
 
                   <input type="hidden" value="<?php echo $user->id ;?>" name="id">

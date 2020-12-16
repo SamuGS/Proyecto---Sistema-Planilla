@@ -4,14 +4,13 @@
     if(isset($_POST['agregar'])){
         
         $n = $_POST['nombre'];
-        $p = $_POST['ph'];
 
          
-        if(empty($n) || empty($p)){
+        if(empty($n)){
             echo '<div class="alert alert-danger icons-alert" data-dismiss="alert">Campos vacios!</div>';
         }else{   	
 
-			$sql = "insert into cargo(descripcion,pago_hora) value (\"$n\",\"$p\")";
+			$sql = "insert into cargo(descripcion) value (\"$n\")";
 			$query_new_insert = mysqli_query($con,$sql);
 			
 			if ($query_new_insert){
@@ -59,16 +58,15 @@
 
     if(isset($_POST['actualizar'])){
         $n = $_POST['nombre'];
-        $ph = $_POST['ph'];
         $ide = $_POST['id'];
        
 
-        if(empty($n) || empty($ph)){
+        if(empty($n)){
             echo '<div class="alert alert-danger icons-alert" role="alert" data-dismiss="alert">';
         }else{
 
 
-			$sql = "update cargo set descripcion=\"$n\",pago_hora=\"$ph\" where id=".$ide;
+			$sql = "update cargo set descripcion=\"$n\" where id=".$ide;
 			$query_new_insert = mysqli_query($con,$sql);
 			
 			if ($query_new_insert){

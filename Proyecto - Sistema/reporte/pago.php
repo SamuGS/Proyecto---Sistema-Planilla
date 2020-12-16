@@ -11,8 +11,8 @@ define('BASEDATOS','db_planilla');
 include('pdf/fpdf/fpdf.php');
 
 //hora y fecha
-    date_default_timezone_set('America/El_Salvador'); 
-    $fecha = date('d-m-Y g:i:s A');
+date_default_timezone_set('America/El_Salvador'); 
+$fecha = date('d-m-Y g:i:s A');
 
 class PDF extends FPDF
 {
@@ -26,7 +26,7 @@ function Header()
     // Movernos a la derecha
     $this->Cell(40);
     // Título
-    $this->Cell(100,10,'Reporte de Empleados',1,0,'C');
+    $this->Cell(100,10,'Reporte de Pagos',1,0,'C');
 
     // ---------------
     $this->Ln(20);
@@ -55,16 +55,14 @@ $pdf->SetTextColor(255,255,255);
 $pdf->SetFont('Arial','B',9);
 
 //$pdf->Ln(8);
-$pdf->Cell(15,6,'Codigo',1,0,'C',1);
-$pdf->Cell(50,6,'Nombre',1,0,'C',1);
-$pdf->Cell(60,6,'Direcion',1,0,'C',1);
-$pdf->Cell(20,6,'Dui',1,0,'C',1);
-$pdf->Cell(20,6,'Telefono',1,0,'C',1);
-$pdf->Cell(25,6,'Salario',1,0,'C',1);
+$pdf->Cell(70,6,'Nombre',1,0,'C',1);
+$pdf->Cell(40,6,'Pago mensual',1,0,'C',1);
+$pdf->Cell(40,6,'Pago quincenal',1,0,'C',1);
+$pdf->Cell(40,6,'Deducciones AFP-ISSS',1,0,'C',1);
 $pdf->SetFont('Arial','',8);
 
 $con = new mysqli(SERVIDOR,USUARIO,CONTRA,BASEDATOS);
-$sql ="select * from empleado";
+$sql ="select * from pago";
 $consulta=$con->query($sql);
 $con->close();
 
@@ -74,15 +72,14 @@ $fill = false;
 
 while($resultado = mysqli_fetch_array($consulta)){
 	$pdf->Ln(6);
-    $pdf->Cell(15,6,$resultado['codigo'],1,0,'C',$fill);
-	$pdf->Cell(50,6,$resultado['nombre'],1,0,'C',$fill);
-    $pdf->Cell(60,6,$resultado['direccion'],1,0,'C',$fill);
-	$pdf->Cell(20,6,$resultado['dui'],1,0,'C',$fill);
-	$pdf->Cell(20,6,$resultado['telefono'],1,0,'C',$fill);
-    $pdf->Cell(25,6,$resultado['salario'],1,0,'C',$fill);
+    $pdf->Cell(70,6,$resultado['nombre'],1,0,'C',$fill);
+	$pdf->Cell(40,6,round($resultado['mensual'],2),1,0,'C',$fill);
+    $pdf->Cell(40,6,round($resultado['quincenal'],2),1,0,'C',$fill);
+	$pdf->Cell(40,6,$resultado['descuento'],1,0,'C',$fill);
+
 
     $fill = !$fill;
 }
-$pdf->Output('Reporte de empleados '.$fecha.'.pdf','I');
+$pdf->Output('Reporte de pagos '.$fecha.'.pdf','I');
 
 ?>

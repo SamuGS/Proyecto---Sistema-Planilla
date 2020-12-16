@@ -3,7 +3,7 @@
 <?php include 'nav.php'; ?>
 
 <?php include 'sidebar.php'; ?>
-<?php include 'Clase.php'; ?>
+<?php include './modelo/Clase.php'; ?>
 
 <div class="pcoded-content">
   <div class="pcoded-inner-content">
@@ -68,7 +68,6 @@
                 <table id="dom-table" class="table">
                 <thead>
                   <th>Roles</th>
-                  <th>Indice por hora</th>
                   <th style="width: 20px">Actualizar</th>
                   <th style="width: 20px">Eliminar</th>
                 </thead>
@@ -77,7 +76,6 @@
 
                 <tr>
                   <td><?php echo $c->cargo?></td>
-                  <td>$ <?php echo $c->ph?></td>
                   <td><?php include 'modal/actualizar_cargo.php' ?></td>
                   <td>
                     <form method="post">

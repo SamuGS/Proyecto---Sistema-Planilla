@@ -17,10 +17,6 @@
                   </div>
 
                   <div class="form-group">
-                    <input class="form-control" placeholder="Pago por hora"  name="ph">
-                  </div>
-
-                  <div class="form-group">
                     <button type="submit" class="btn btn-outline-primary btn-block" name="agregar">Registrar</button>
                   </div>
 

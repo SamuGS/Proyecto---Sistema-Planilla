@@ -6,14 +6,22 @@
         $nombre = $_POST['nombre'];
         $monto = $_POST['salario'];
         $a = $_POST['afp'];
-        $s = $_POST['seguro'];
-        $sn = $_POST['sn'];
-         
-        if(empty($nombre) || empty($monto)){
+        $seguro = $_POST['seguro'];
+        $dt = $_POST['dias_trabajados'];
+        $d = $a + $seguro;
+
+        $s = $monto + $a + $seguro;
+        $salario = $s / 30;
+        $salario_mensual = $salario * $dt;
+        
+        $sueldo = $salario_mensual - $d;
+        $quince = $sueldo/2; 
+
+        if(empty($dt)){
             echo '<div class="alert alert-danger" data-dismiss="alert">Campos vacios!</div>';
         }else{   	
 
-			$sql = "insert into pago(nombre,salario,squince,afp,seguro,registro) value (\"$nombre\",\"$monto\",\"$sn\",\"$a\",\"$s\",NOW())";
+			$sql = "insert into pago(nombre,mensual,quincenal,afp,seguro,descuento,registro) value (\"$nombre\",\"$sueldo\",\"$quince\",\"$a\",\"$seguro\",\"$d\",NOW())";
 			$query_new_insert = mysqli_query($con,$sql);
 			
 			if ($query_new_insert){

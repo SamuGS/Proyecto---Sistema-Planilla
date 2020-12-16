@@ -17,11 +17,7 @@
                   <div class="form-group">
                     <input class="form-control" value="<?php echo $c->cargo ;?>" name="nombre" style="width: 440px">
                   </div>
-
-                  <div class="form-group">
-                    <input class="form-control" value="<?php echo $c->ph ;?>" name="ph" style="width: 440px">
-                  </div>
-
+                  
                   <div class="form-group">
                     <input type="hidden" class="form-control" value="<?php echo $c->id ;?>" name="id">
                   </div>

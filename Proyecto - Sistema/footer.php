@@ -20,6 +20,7 @@
 <script src="./plugins/assets/pages/data-table/js/jszip.min.js"></script>
 <script src="./plugins/assets/pages/data-table/js/pdfmake.min.js"></script>
 <script src="./plugins/assets/pages/data-table/js/vfs_fonts.js"></script>
+<script src="./plugins/assets/pages/data-table/extensions/buttons/js/buttons.colVis.min.js"></script>
 <script src="./plugins/bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
 <script src="./plugins/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
 <script src="./plugins/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -54,8 +55,9 @@
 
 <script type="text/javascript" src="./plugins/bower_components/jquery-minicolors/jquery.minicolors.min.js"></script>
 
-
- <script src="./autocompletar/js/jquery-ui.js"></script>
-  <script src="./autocompletar/js/jquery-1.10.2"></script>
+<script src="./plugins/assets/pages/form-masking/inputmask.js"></script>
+<script src="./plugins/assets/pages/form-masking/jquery.inputmask.js"></script>
+<script src="./plugins/assets/pages/form-masking/autoNumeric.js"></script>
+<script src="./plugins/assets/pages/form-masking/form-mask.js"></script>
 
 </html>

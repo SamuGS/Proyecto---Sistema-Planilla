@@ -3,7 +3,7 @@
 <?php include 'nav.php'; ?>
 
 <?php include 'sidebar.php'; ?>
-<?php include 'Clase.php'; ?>
+<?php include './modelo/Clase.php'; ?>
 
 <div class="pcoded-content">
   <div class="pcoded-inner-content">

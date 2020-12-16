@@ -11,7 +11,7 @@
       <div class="page-wrapper">
         <div class="page-header">
           <div class="page-header-title">
-            <h4>Asistencias</h4>
+            <h4>Usuarios</h4>
           </div>
           
           <div class="page-header-breadcrumb">
@@ -25,7 +25,7 @@
 
               <li class="breadcrumb-item">Vista
               </li>
-              <li class="breadcrumb-item">Asistencia
+              <li class="breadcrumb-item">Usuarios
               </li>
             </ul>
           </div>  
@@ -45,7 +45,7 @@
 
 
 
-          <?php include 'Clase.php'; ?>
+          <?php include './modelo/Clase.php'; ?>
           <?php 
             $usu = Empleado::mostrar_usuario();
             if(count($usu)>0){
@@ -57,7 +57,7 @@
 
           <div class="card">
             <div class="card-header">
-              <h5>Tabla de Asistencia</h5>
+              <h5>Tabla de Usuario</h5>
               <div class="card-header-right">
                 <i class="icofont icofont-rounded-down"></i>
                 <i class="icofont icofont-refresh"></i>
